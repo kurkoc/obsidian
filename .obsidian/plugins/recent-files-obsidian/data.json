@@ -1,0 +1,52 @@
+{
+  "recentFiles": [
+    {
+      "basename": "ConfigMaps",
+      "path": "kubernetes/ConfigMaps.md"
+    },
+    {
+      "basename": "Secrets",
+      "path": "kubernetes/Secrets.md"
+    },
+    {
+      "basename": "DaemonSet",
+      "path": "kubernetes/DaemonSet.md"
+    },
+    {
+      "basename": "StatefulSet",
+      "path": "kubernetes/StatefulSet.md"
+    },
+    {
+      "basename": "Nodes",
+      "path": "kubernetes/Nodes.md"
+    },
+    {
+      "basename": "git internals",
+      "path": "git/git internals/git internals.md"
+    },
+    {
+      "basename": "git remote",
+      "path": "git/git remote.md"
+    },
+    {
+      "basename": "markdown",
+      "path": "markdown/markdown.md"
+    },
+    {
+      "basename": "belvedere",
+      "path": "markdown/belvedere.JPG"
+    },
+    {
+      "basename": "Turkish_Sentiment_Analysis_Using_BERT",
+      "path": "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf"
+    },
+    {
+      "basename": "gitversion",
+      "path": "gitversion/gitversion.md"
+    }
+  ],
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
+}

@@ -24,24 +24,16 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
-      "filepath": "kubernetes/Untitled.md",
-      "timestamp": 1745226838390
-    },
-    {
-      "filepath": "kubernetes/Startup Probes.md",
-      "timestamp": 1745225611911
-    },
-    {
-      "filepath": "kubernetes/Readiness Probes.md",
-      "timestamp": 1745225499887
+      "filepath": "kubernetes/Probes.md",
+      "timestamp": 1745239928108
     },
     {
       "filepath": "kubernetes/Liveness Probes.md",
-      "timestamp": 1745219592548
+      "timestamp": 1745239455951
     },
     {
-      "filepath": "kubernetes/ConfigMaps.md",
-      "timestamp": 1745159620507
+      "filepath": "kubernetes/Secrets.md",
+      "timestamp": 1745239000577
     }
   ],
   "bookmarkedFileStore": [],

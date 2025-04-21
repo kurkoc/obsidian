@@ -5,24 +5,16 @@
       "path": "kubernetes/Probes.md"
     },
     {
-      "basename": "Startup Probes",
-      "path": "kubernetes/Startup Probes.md"
-    },
-    {
-      "basename": "Readiness Probes",
-      "path": "kubernetes/Readiness Probes.md"
-    },
-    {
       "basename": "Liveness Probes",
       "path": "kubernetes/Liveness Probes.md"
     },
     {
-      "basename": "ConfigMaps",
-      "path": "kubernetes/ConfigMaps.md"
-    },
-    {
       "basename": "Secrets",
       "path": "kubernetes/Secrets.md"
+    },
+    {
+      "basename": "ConfigMaps",
+      "path": "kubernetes/ConfigMaps.md"
     },
     {
       "basename": "DaemonSet",

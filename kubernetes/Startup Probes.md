@@ -1,0 +1,3 @@
+Startup Probe, bir container'ın doğru şekilde başlatılıp başlatılmadığını kontrol etmek için kullanılır. Startup probe, başarılı olana kadar liveness ve readiness probe'ları başlamaz, böylelikle uygulama henüz çalışmaya başlamadan gereksiz yere live/read sorguları atılmaz. Startup probe başarısız olursa, Kubernetes container'ı yeniden başlatmayı deneyecektir.
+
+Özellikle, başlaması uzun süren container'larda kullanılmak için tasarlanmıştır.

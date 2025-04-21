@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kubernetes/ConfigMaps.md",
+                "file": "kubernetes/Probes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ConfigMaps"
+              "title": "Probes"
             }
           }
         ]
@@ -80,8 +80,8 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           },
           {
@@ -90,8 +90,8 @@
             "state": {
               "type": "trash-explorer",
               "state": {},
-              "icon": "trash",
-              "title": "Trash explorer"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ]
@@ -177,8 +177,8 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -203,8 +203,12 @@
   },
   "active": "45c53f47ce093657",
   "lastOpenFiles": [
-    "kubernetes/Secrets.md",
+    "kubernetes/Startup Probes.md",
+    "kubernetes/Probes.md",
+    "kubernetes/Readiness Probes.md",
+    "kubernetes/Liveness Probes.md",
     "kubernetes/ConfigMaps.md",
+    "kubernetes/Secrets.md",
     "kubernetes/DaemonSet.md",
     "kubernetes/StatefulSet.md",
     "kubernetes/Nodes.md",
@@ -239,14 +243,10 @@
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion/gitversion.md",
     "sample note.md",
-    "kubernetes/Drawing 2025-04-17 20.40.53.excalidraw.md",
     "gitversion",
     "git",
-    "Excalidraw/Drawing 2025-04-05 15.37.11.excalidraw.md",
-    "2025-04-05.md",
     "Excalidraw",
     "Untitled.canvas",
-    "personal/vs code for dotnet/dotnet new.md",
     "personal/vs code for dotnet",
     "markdown",
     "nesine"

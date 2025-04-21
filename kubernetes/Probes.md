@@ -1,4 +1,4 @@
-Probelar ile bir container üzerinde farklı fazlarda ve genellikle periyodik olarak çalışan; container'ın hala çalışır durumda ve trafik almaya hazır olduğunu sınayan kontrol mekanizmalarıdır. Bu kontrol sonucunda üretilen `Success`, `Failure` ve `Unknown` değerlerine göre aksiyonlar alınır.
+Probe'lar bir container'ın, başarıyla başlayıp başlamadığını, hala çalışır durumda ve trafik almaya hazır olduğunu, farklı fazlarda ve genellikle periyodik olarak sınayan kontrol mekanizmalarıdır. Bu kontrol sonucunda üretilen `Success`, `Failure` ve `Unknown` değerlerine göre aksiyonlar alınır.
 
 Kubernetes için geliştirilmiş üç farklı probe türü vardır.
 - Liveness Probe
@@ -91,11 +91,11 @@ Kubernetes üzerinde çalışan ve hazır olmadan önce veri yüklemesi, büyük
 
 ### Startup Probes
 
-Startup Probe, bir container'ın doğru şekilde başlatılıp başlatılmadığını kontrol etmek için kullanılır. Periyodik olarak çalışan liveness, readiness probe'ların aksine startup probe sadece başlangıçta bir kez çalışır.
+Startup Probe, bir container'ın doğru şekilde başlayıp başlamadığını kontrol etmek için kullanılır. Periyodik olarak çalışan liveness, readiness probe'ların aksine startup probe sadece başlangıçta bir kez çalışır. Özellikle, başlaması uzun süren container'larda kullanılmak için tasarlanmıştır. Startup probe başarısız olursa, Kubernetes container'ı yeniden başlatmayı deneyecektir.
 
-Startup probe, başarılı olana kadar liveness ve readiness probe'ları başlamaz, böylelikle uygulamanın talep edilen şekilde çalıştığından emin olmadan, gereksiz yere liveness, readiness probe sorguları atılmaz. Startup probe başarısız olursa, Kubernetes container'ı yeniden başlatmayı deneyecektir.
+Startup probe, başarılı olana kadar liveness ve readiness probe'ları başlamaz, böylelikle uygulamanın talep edilen şekilde çalıştığından emin olmadan, gereksiz yere liveness, readiness probe sorguları atılmaz. 
 
-Özellikle, başlaması uzun süren container'larda kullanılmak için tasarlanmıştır.
+
 
 ### Genel Ayarlar
 

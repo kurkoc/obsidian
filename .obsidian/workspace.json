@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kubernetes/Probes.md",
+                "file": "kubernetes/Labels.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Probes"
+              "title": "Labels"
             }
           }
         ]
@@ -203,8 +203,9 @@
   },
   "active": "45c53f47ce093657",
   "lastOpenFiles": [
-    "kubernetes/Liveness Probes.md",
     "kubernetes/Probes.md",
+    "kubernetes/Labels.md",
+    "kubernetes/Liveness Probes.md",
     "kubernetes/Readiness Probes.md",
     "kubernetes/Startup Probes.md",
     "kubernetes/Secrets.md",
@@ -242,7 +243,6 @@
     "Untitled.md",
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion/gitversion.md",
-    "sample note.md",
     "gitversion",
     "git",
     "Excalidraw",

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Labels",
+      "path": "kubernetes/Labels.md"
+    },
+    {
       "basename": "Probes",
       "path": "kubernetes/Probes.md"
     },

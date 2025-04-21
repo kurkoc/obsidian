@@ -25,11 +25,7 @@
   "recentFilesStore": [
     {
       "filepath": "kubernetes/Probes.md",
-      "timestamp": 1745239928108
-    },
-    {
-      "filepath": "kubernetes/Liveness Probes.md",
-      "timestamp": 1745239455951
+      "timestamp": 1745240104931
     },
     {
       "filepath": "kubernetes/Secrets.md",

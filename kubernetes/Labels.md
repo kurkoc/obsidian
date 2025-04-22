@@ -100,6 +100,21 @@ kubectl get pods -l "env,team=backend" => herhangi bir env labeli olan ve team l
 ```
 
 ```
+kubectl get pods -A -l app -L app
+
+NAMESPACE         NAME                              READY   STATUS    RESTARTS   AGE     APP
+apinizer-portal   apinizer-portal-7968db574-gfl9k   1/1     Running   0          8m1s    apinizer-portal
+apinizer          manager-9c48f94f9-crfl7           1/1     Running   0          3d19h   manager
+prod              cache-ffccd776f-t5wdc             1/1     Running   0          3d19h   cache
+prod              worker-797cd697f-l9bjq            1/1     Running   0          3d19h   worker
+prod              worker-797cd697f-v7tpk            1/1     Running   0          3d19h   worker
+
+```
+ 
+`-l` ile filtreleme yaparken, `-L` ile de verdiğimiz label değerinin liste sonuç kolonları arasında gösterilmesini sağladık.
+
+
+```
 kubectl get pods -l "env in (dev,stage)" 
 
 kubectl get pods -l 'environment,environment notin (frontend)'
@@ -109,3 +124,40 @@ kubectl get pods -l 'environment,environment notin (frontend)'
 #### Tavsiye Edilen Label'lar
 
 Kubernetes üzerinde nesneleri takip edebilmemize yarayan, pek çok monitoring ve dashboard uygulaması mevcuttur. Ortak bir label kümesi kullanmak, nesneleri tüm araçların anlayabileceği ortak bir kimlik halinde sunmamıza yardımcı olabilir.
+
+| Key                            | Description                                                                                                             | Example        | Type   |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | -------------- | ------ |
+| `app.kubernetes.io/name`       | The name of the application                                                                                             | `mysql`        | string |
+| `app.kubernetes.io/instance`   | A unique name identifying the instance of an application                                                                | `mysql-abcxyz` | string |
+| `app.kubernetes.io/version`    | The current version of the application (e.g., a [SemVer 1.0](https://semver.org/spec/v1.0.0.html), revision hash, etc.) | `5.7.21`       | string |
+| `app.kubernetes.io/component`  | The component within the architecture                                                                                   | `database`     | string |
+| `app.kubernetes.io/part-of`    | The name of a higher level application this one is part of                                                              | `wordpress`    | string |
+| `app.kubernetes.io/managed-by` | The tool being used to manage the operation of an application                                                           | `Helm`         | string |
+
+Label'ların Kubernetes üzerinde bir diğer ve daha önemli kullanım şekli ise; service, deployment gibi nesneler hedefledikleri pod kümesini bir label seçici üzerinden tanımlar.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app.kubernetes.io/name: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9376
+```
+
+Service ve ReplicationController gibi objeler sadece üstteki gibi equality-based selector'u kullanabilirken. Job, Deployment, ReplicaSet, DaemonSet gibi objeler set-based selectorleri de desteklerler.
+
+```yaml
+selector:
+  matchLabels:
+    component: redis
+  matchExpressions:
+    - { key: tier, operator: In, values: [cache] }
+    - { key: environment, operator: NotIn, values: [dev] }
+```
+

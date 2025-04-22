@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "Deployments",
+      "path": "kubernetes/Deployments.md"
+    },
+    {
+      "basename": "ReplicaSet",
+      "path": "kubernetes/ReplicaSet.md"
+    },
+    {
+      "basename": "Objects",
+      "path": "kubernetes/Objects.md"
+    },
+    {
+      "basename": "Annotations",
+      "path": "kubernetes/Annotations.md"
+    },
+    {
       "basename": "Labels",
       "path": "kubernetes/Labels.md"
     },

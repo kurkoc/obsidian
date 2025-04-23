@@ -1,12 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "Deployments",
-      "path": "kubernetes/Deployments.md"
+      "basename": "Services",
+      "path": "kubernetes/Services.md"
     },
     {
-      "basename": "ReplicaSet",
-      "path": "kubernetes/ReplicaSet.md"
+      "basename": "kind",
+      "path": "kubernetes/kind.md"
+    },
+    {
+      "basename": "Servis Listesi",
+      "path": "apinizer/Servis Listesi.md"
+    },
+    {
+      "basename": "Erişim Bilgileri",
+      "path": "apinizer/Erişim Bilgileri.md"
+    },
+    {
+      "basename": "Namespaces",
+      "path": "kubernetes/Namespaces.md"
     },
     {
       "basename": "Objects",
@@ -17,8 +29,20 @@
       "path": "kubernetes/Annotations.md"
     },
     {
+      "basename": "StatefulSet",
+      "path": "kubernetes/StatefulSet.md"
+    },
+    {
       "basename": "Labels",
       "path": "kubernetes/Labels.md"
+    },
+    {
+      "basename": "Deployments",
+      "path": "kubernetes/Deployments.md"
+    },
+    {
+      "basename": "ReplicaSet",
+      "path": "kubernetes/ReplicaSet.md"
     },
     {
       "basename": "Probes",
@@ -35,10 +59,6 @@
     {
       "basename": "DaemonSet",
       "path": "kubernetes/DaemonSet.md"
-    },
-    {
-      "basename": "StatefulSet",
-      "path": "kubernetes/StatefulSet.md"
     },
     {
       "basename": "Nodes",

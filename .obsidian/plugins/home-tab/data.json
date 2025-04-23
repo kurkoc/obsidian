@@ -24,24 +24,24 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
-      "filepath": "kubernetes/Untitled.md",
-      "timestamp": 1745321700836
+      "filepath": "kubernetes/Services.md",
+      "timestamp": 1745425858464
     },
     {
-      "filepath": "kubernetes/ReplicaSet.md",
-      "timestamp": 1745311977255
+      "filepath": "kubernetes/kind.md",
+      "timestamp": 1745416634716
     },
     {
-      "filepath": "kubernetes/Objects.md",
-      "timestamp": 1745307881504
+      "filepath": "apinizer/Servis Listesi.md",
+      "timestamp": 1745409132687
     },
     {
-      "filepath": "kubernetes/Annotations.md",
-      "timestamp": 1745306516777
+      "filepath": "apinizer/Erişim Bilgileri.md",
+      "timestamp": 1745409129746
     },
     {
-      "filepath": "kubernetes/Labels.md",
-      "timestamp": 1745241982440
+      "filepath": "kubernetes/Namespaces.md",
+      "timestamp": 1745342276004
     }
   ],
   "bookmarkedFileStore": [],

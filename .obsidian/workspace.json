@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "411281b08e46578d",
+        "id": "01df11f2261e18fd",
         "type": "tabs",
         "children": [
           {
-            "id": "45c53f47ce093657",
+            "id": "55eb9c955970e551",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kubernetes/Deployments.md",
+                "file": "kubernetes/Services.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Deployments"
+              "title": "Services"
             }
           }
         ]
@@ -80,8 +80,8 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "clock",
+              "title": "Recent Files"
             }
           },
           {
@@ -90,8 +90,8 @@
             "state": {
               "type": "trash-explorer",
               "state": {},
-              "icon": "lucide-file",
-              "title": "Plugin no longer active"
+              "icon": "trash",
+              "title": "Trash explorer"
             }
           }
         ]
@@ -201,13 +201,19 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "45c53f47ce093657",
+  "active": "55eb9c955970e551",
   "lastOpenFiles": [
-    "kubernetes/ReplicaSet.md",
-    "kubernetes/Deployments.md",
+    "kubernetes/kind.md",
+    "kubernetes/Services.md",
+    "apinizer/Servis Listesi.md",
+    "apinizer/Erişim Bilgileri.md",
+    "kubernetes/Namespaces.md",
     "kubernetes/Objects.md",
     "kubernetes/Annotations.md",
+    "kubernetes/StatefulSet.md",
     "kubernetes/Labels.md",
+    "kubernetes/ReplicaSet.md",
+    "kubernetes/Deployments.md",
     "kubernetes/Probes.md",
     "kubernetes/Liveness Probes.md",
     "kubernetes/Readiness Probes.md",
@@ -215,12 +221,9 @@
     "kubernetes/Secrets.md",
     "kubernetes/ConfigMaps.md",
     "kubernetes/DaemonSet.md",
-    "kubernetes/StatefulSet.md",
     "kubernetes/Nodes.md",
     "git/git internals/git internals.md",
     "git/git remote.md",
-    "apinizer/Servis Listesi.md",
-    "apinizer/Erişim Bilgileri.md",
     "apinizer",
     "kubernetes",
     "gitversion/gitversion copy.md",
@@ -239,9 +242,6 @@
     "markdown/markdown.md",
     "kubernetes/apinizer.md",
     "kubernetes/intro.md",
-    "kubernetes-cluster-architecture.md",
-    "2025-04-17.md",
-    "2025-04-18.md",
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion",
     "git",

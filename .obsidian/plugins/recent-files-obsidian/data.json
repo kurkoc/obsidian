@@ -5,16 +5,20 @@
       "path": "apinizer/Kubernetes -Yeni.md"
     },
     {
+      "basename": "Kubernetes - Eski",
+      "path": "apinizer/Kubernetes - Eski.md"
+    },
+    {
+      "basename": "Secrets",
+      "path": "kubernetes/Secrets.md"
+    },
+    {
       "basename": "Erişim Bilgileri",
       "path": "apinizer/Erişim Bilgileri.md"
     },
     {
       "basename": "Servis Listesi",
       "path": "apinizer/Servis Listesi.md"
-    },
-    {
-      "basename": "Kubernetes - Eski",
-      "path": "apinizer/Kubernetes - Eski.md"
     },
     {
       "basename": "git remote",
@@ -91,10 +95,6 @@
     {
       "basename": "Probes",
       "path": "kubernetes/Probes.md"
-    },
-    {
-      "basename": "Secrets",
-      "path": "kubernetes/Secrets.md"
     },
     {
       "basename": "ConfigMaps",

@@ -52,3 +52,34 @@ NAME                     READY   STATUS    RESTARTS   AGE     IP            NODE
 cache-5cfd8dbbb4-vb5g4   1/1     Running   0          5d23h   10.244.2.20   kworker02   <none>           <none>
 ```
 
+
+```
+kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbName'} | base64 -d
+
+apinizerdb
+```
+
+```
+kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbUrl'} | base64 -d
+
+mongodb://apinizer:yXjLF5qRJhNXmUB2@172.20.50.73:25080,172.20.50.74:25080,172.20.50.85:25080/?authSource=admin&replicaSet=apinizer-replicaset
+```
+
+
+```
+kubectl get secret mongo-db-credentials -n prod  -o jsonpath={'.data.dbName'} | base64 -d
+apinizerdb
+```
+
+```
+kubectl get secret mongo-db-credentials -n prod  -o jsonpath={'.data.dbUrl'} | base64 -d
+
+mongodb://apinizer:yXjLF5qRJhNXmUB2@172.20.50.105:25080,172.20.50.106:25080,172.20.50.107:25080/?authSource=admin&replicaSet=apinizer-replicaset
+```
+
+```
+kubectl get secret -n apinizer default-token-hhvxf -o jsonpath={'.data'}
+
+{"ca.crt":"LS0tLS1CRUdJTi..."}
+```
+

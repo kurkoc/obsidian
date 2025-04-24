@@ -62,3 +62,30 @@ worker-797cd697f-v7tpk   1/1     Running   0          5d22h   10.240.100.198   s
 
 ```
 
+
+
+```
+kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbName'} | base64 -d
+
+apinizerdb
+```
+
+```
+kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbUrl'} | base64 -d
+
+mongodb://apinizer:yXjLF5qRJhNXmUB2@172.20.50.105:25080,172.20.50.106:25080,172.20.50.107:25080/?authSource=admin&replicaSet=apinizer-replicaset
+```
+
+
+
+```
+kubectl get secret mongo-db-credentials -n prod  -o jsonpath={'.data.dbName'} | base64 -d
+
+apinizerdb
+```
+
+```
+kubectl get secret mongo-db-credentials -n prod  -o jsonpath={'.data.dbUrl'} | base64 -d
+
+mongodb://apinizer:yXjLF5qRJhNXmUB2@172.20.50.105:25080,172.20.50.106:25080,172.20.50.107:25080/?authSource=admin&replicaSet=apinizer-replicaset
+```

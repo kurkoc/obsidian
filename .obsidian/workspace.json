@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apinizer/Kubernetes -Yeni.md",
+                "file": "apinizer/Kubernetes - Eski.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes -Yeni"
+              "title": "Kubernetes - Eski"
             }
           }
         ],
@@ -218,8 +218,8 @@
   },
   "active": "e7dedcae05695106",
   "lastOpenFiles": [
-    "apinizer/Kubernetes - Eski.md",
     "apinizer/Kubernetes -Yeni.md",
+    "apinizer/Kubernetes - Eski.md",
     "kubernetes/Secrets.md",
     "apinizer/Erişim Bilgileri.md",
     "apinizer/Servis Listesi.md",

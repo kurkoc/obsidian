@@ -1,3 +1,6 @@
+
+#### Nodes
+
 ```
 kubectl get nodes -owide
 
@@ -26,7 +29,7 @@ Manager uygulaması 32080 portundan
 
 Worker servisine de 30080 portundan ulaşabiliriz.
 
-
+#### Pods
 
 ```
 kubectl get pods -n apinizer -l app=manager -owide
@@ -52,6 +55,8 @@ NAME                     READY   STATUS    RESTARTS   AGE     IP            NODE
 cache-5cfd8dbbb4-vb5g4   1/1     Running   0          5d23h   10.244.2.20   kworker02   <none>           <none>
 ```
 
+
+#### Secrets
 
 ```
 kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbName'} | base64 -d

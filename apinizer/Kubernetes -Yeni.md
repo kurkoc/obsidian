@@ -1,3 +1,5 @@
+#### Nodes
+
 ```
 kubectl get nodes -owide
 
@@ -11,16 +13,17 @@ sworkerappc03   Ready    <none>          7d20h   v1.31.0   172.20.50.97    <none
 
 ```
 
+#### Services
 
 ```
-kubectl get svc -A
+kubectl get svc -A -owide
 
-NAMESPACE         NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
-apinizer-portal   apinizer-portal-service   NodePort    10.102.87.28     <none>        8080:32090/TCP           2d3h
-apinizer          manager                   NodePort    10.105.192.162   <none>        8080:32080/TCP           5d22h
-prod              cache-http-service        ClusterIP   10.97.132.189    <none>        8090/TCP                 5d22h
-prod              cache-hz-service          ClusterIP   10.111.184.42    <none>        5701/TCP                 5d22h
-prod              worker-http-service       NodePort    10.98.39.120     <none>        8091:30080/TCP           5d22h
+NAMESPACE         NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE    SELECTOR
+apinizer-portal   apinizer-portal-service   NodePort    10.102.87.28     <none>        8080:32090/TCP           2d7h   app=apinizer-portal
+apinizer          manager                   NodePort    10.105.192.162   <none>        8080:32080/TCP           6d2h   app=manager
+prod              cache-http-service        ClusterIP   10.97.132.189    <none>        8090/TCP                 6d2h   app=cache
+prod              cache-hz-service          ClusterIP   10.111.184.42    <none>        5701/TCP                 6d2h   app=cache
+prod              worker-http-service       NodePort    10.98.39.120     <none>        8091:30080/TCP           6d2h   app=worker
 
 ```
 
@@ -38,6 +41,8 @@ Portal uygulaması 32090 portundan
 Worker servisine de 30080 portundan ulaşabiliriz.
 
 ![worker](../_images/apinizer_worker.png)
+
+#### Pods
 
 ```
 kubectl get pods -n apinizer -l app=manager -owide
@@ -62,7 +67,14 @@ worker-797cd697f-v7tpk   1/1     Running   0          5d22h   10.240.100.198   s
 
 ```
 
+```
+kubectl get pods -n prod -l app=cache -owide
 
+NAME                    READY   STATUS    RESTARTS   AGE    IP               NODE            NOMINATED NODE   READINESS GATES
+cache-ffccd776f-t5wdc   1/1     Running   0          6d2h   10.240.209.199   sworkerappc02   <none>           <none>
+```
+
+#### Secrets
 
 ```
 kubectl get secret mongo-db-credentials -n apinizer  -o jsonpath={'.data.dbName'} | base64 -d

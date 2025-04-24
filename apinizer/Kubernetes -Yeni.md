@@ -29,15 +29,15 @@ NodePort olarak çalışan 3 adet service var.
 
 Manager uygulaması 32080 portundan
 
-![[_images/apinizer_manager.png]]
+![manager](_images/apinizer_manager.png)
 
 Portal uygulaması 32090 portundan
 
-![[_images/apinizer_portal.png]]
+![portal](_images/apinizer_portal.png)
 
 Worker servisine de 30080 portundan ulaşabiliriz.
 
-![[_images/apinizer_worker.png]]
+![worker](_images/apinizer_worker.png)
 
 ```
 kubectl get pods -n apinizer -l app=manager -owide

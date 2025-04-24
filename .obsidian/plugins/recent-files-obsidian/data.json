@@ -1,8 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "Erişim Bilgileri",
+      "path": "apinizer/Erişim Bilgileri.md"
+    },
+    {
+      "basename": "Servis Listesi",
+      "path": "apinizer/Servis Listesi.md"
+    },
+    {
+      "basename": "Kubernetes - Eski",
+      "path": "apinizer/Kubernetes - Eski.md"
+    },
+    {
       "basename": "Kubernetes -Yeni",
       "path": "apinizer/Kubernetes -Yeni.md"
+    },
+    {
+      "basename": "git remote",
+      "path": "git/git remote.md"
+    },
+    {
+      "basename": "git config",
+      "path": "git/git config.md"
+    },
+    {
+      "basename": "git internals",
+      "path": "git/git internals/git internals.md"
     },
     {
       "basename": "Services",
@@ -17,24 +41,12 @@
       "path": "kubernetes/Objects.md"
     },
     {
-      "basename": "Kubernetes - Eski",
-      "path": "apinizer/Kubernetes - Eski.md"
-    },
-    {
       "basename": "apinizer_worker",
       "path": "_images/apinizer_worker.png"
     },
     {
       "basename": "apinizer_portal",
       "path": "_images/apinizer_portal.png"
-    },
-    {
-      "basename": "Erişim Bilgileri",
-      "path": "apinizer/Erişim Bilgileri.md"
-    },
-    {
-      "basename": "Servis Listesi",
-      "path": "apinizer/Servis Listesi.md"
     },
     {
       "basename": "clusterip",
@@ -47,18 +59,6 @@
     {
       "basename": "gitversion",
       "path": "gitversion/gitversion.md"
-    },
-    {
-      "basename": "git remote",
-      "path": "git/git remote.md"
-    },
-    {
-      "basename": "git config",
-      "path": "git/git config.md"
-    },
-    {
-      "basename": "git internals",
-      "path": "git/git internals/git internals.md"
     },
     {
       "basename": "markdown",

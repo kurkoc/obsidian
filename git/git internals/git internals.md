@@ -28,7 +28,7 @@ cat .git/description
 Unnamed repository; edit this file 'description' to name the repository.
 ```
 
-![[git-description.png]]
+![description](git-description.png)
 
 ### HEAD
 
@@ -53,7 +53,8 @@ ae9859f87ddcddc158d90771cc3da84fc4d6265a
 
 Burada bilmemiz gereken; HEAD dosyasının içeriği, yani referans olarak gösterdiği HEAD bilgisi mevcut branch'e göre değişir.
 
-![[git-heads-branch.png]]
+![heads](git-heads-branch.png)
+
 > Üstteki örnek üzerinden bakarsak eğer, main branch'ında iken `refs/heads/main` olan içerik sample-feature ismindeki branch'e geçiş yaptığımızda `refs/heads/sample-feature` olarak değişti. (Dosyaların içeriklerinin aynı olduğunu görüyoruz, bunun sebebi iki branch'inde şu anda eşit olmasıdır)
 
 
@@ -61,7 +62,7 @@ Burada bilmemiz gereken; HEAD dosyasının içeriği, yani referans olarak göst
 
 git üzerinde bir şey olmadan önce/sonra tetikleyebileceğimiz çalıştırılabilir scriptler içeren dosyalar burada yer alır. hooks başlığında ayrıca bahsederiz.
 
-![[git-hooks.png]]
+![hooks](git-hooks.png)
 
 ### info
 
@@ -83,7 +84,7 @@ Yukarıdaki komutun çıktısı 40 karakterlik bir checksum değeridir. Bu değe
 
 Şimdi baktığımızda ise;
 
-![[git-objects.png]]
+![objects](git-objects.png)
 Oluşan hash'in ilk 2 karakteri klasör adı, geri kalan 38 karakter ise dosya adı olacak şekilde parçalanarak objects klasörü altında depolandığını görebiliriz.
 
 ```
@@ -102,7 +103,7 @@ test content
 
 Şimdi, içerisinde sample echo text yazan echo.txt isminde reel bir dosya ekleyip, ilk commitimizi yapalım.
 
-![[git-objects-2.png]]
+![objects-2](git-objects-2.png)
 
 Yeni klasörler geldiğini görebiliyoruz.
 
@@ -160,27 +161,27 @@ Burada karşımıza git üzerindeki önemli objeler çıkıyor.
 
 Binary Large Object. Dosyaların içerikleri blob olarak saklanır. Dosya gibi düşünülebilir ancak dosyalar oluşturulma tarihi, güncelleme tarihi gibi metadatalar da içerirken, bloblar sadece dosyaların içeriğini saklar.
 
-![[git-blob.png]]
+![blob](git-blob.png)
 
-![[git-blob2.png]]
+![blob-2](git-blob2.png)
 
 #### Tree
 
 Tree, blob'lara ve diğer alt tree'lere o nesnelerin hash değerleri üzerinden referans veren klasör benzeri bir git nesnesidir.
 
-![[git-tree2.png]]
+![tree](git-tree2.png)
 
 
-![[git-tree1.png]]
+![tree-1](git-tree1.png)
 
 
 #### Commit
 
-![[git-commit2.png]]
+![commit-2](git-commit2.png)
 
 
 
-![[git-commit1.png]]
+![commit-1](git-commit1.png)
 
 
 

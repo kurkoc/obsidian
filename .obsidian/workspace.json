@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apinizer/Kubernetes -Yeni.md",
+                "file": "apinizer/Erişim Bilgileri.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes -Yeni"
+              "title": "Erişim Bilgileri"
             }
           }
         ]
@@ -203,24 +203,24 @@
   },
   "active": "360315a79c1bd67f",
   "lastOpenFiles": [
+    "apinizer/Servis Listesi.md",
+    "apinizer/Kubernetes - Eski.md",
+    "apinizer/Kubernetes -Yeni.md",
+    "git/git remote.md",
+    "git/git config.md",
+    "git/git internals/git internals.md",
     "kubernetes/Services.md",
     "kubernetes/Deployments.md",
     "Pasted image 20250424150419.png",
     "kubernetes/Objects.md",
-    "apinizer/Kubernetes - Eski.md",
-    "apinizer/Kubernetes -Yeni.md",
     "_images/apinizer_worker.png",
     "_images/apinizer_portal.png",
     "_images/apinizer_manager.png",
     "apinizer/Erişim Bilgileri.md",
-    "apinizer/Servis Listesi.md",
     "_images/clusterip.png",
     "_images",
     "gitversion/gitversion copy.md",
     "gitversion/gitversion.md",
-    "git/git remote.md",
-    "git/git config.md",
-    "git/git internals/git internals.md",
     "markdown/markdown.md",
     "kubernetes/kind.md",
     "kubernetes/Namespaces.md",

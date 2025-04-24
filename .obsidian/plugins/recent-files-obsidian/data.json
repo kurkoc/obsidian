@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Kubernetes -Yeni",
+      "path": "apinizer/Kubernetes -Yeni.md"
+    },
+    {
       "basename": "Erişim Bilgileri",
       "path": "apinizer/Erişim Bilgileri.md"
     },
@@ -11,10 +15,6 @@
     {
       "basename": "Kubernetes - Eski",
       "path": "apinizer/Kubernetes - Eski.md"
-    },
-    {
-      "basename": "Kubernetes -Yeni",
-      "path": "apinizer/Kubernetes -Yeni.md"
     },
     {
       "basename": "git remote",

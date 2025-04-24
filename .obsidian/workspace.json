@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apinizer/Erişim Bilgileri.md",
+                "file": "apinizer/Kubernetes -Yeni.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Erişim Bilgileri"
+              "title": "Kubernetes -Yeni"
             }
           }
         ]
@@ -203,6 +203,7 @@
   },
   "active": "360315a79c1bd67f",
   "lastOpenFiles": [
+    "apinizer/Erişim Bilgileri.md",
     "apinizer/Servis Listesi.md",
     "apinizer/Kubernetes - Eski.md",
     "apinizer/Kubernetes -Yeni.md",
@@ -216,7 +217,6 @@
     "_images/apinizer_worker.png",
     "_images/apinizer_portal.png",
     "_images/apinizer_manager.png",
-    "apinizer/Erişim Bilgileri.md",
     "_images/clusterip.png",
     "_images",
     "gitversion/gitversion copy.md",

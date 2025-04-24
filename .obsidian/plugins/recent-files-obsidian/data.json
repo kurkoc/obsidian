@@ -5,24 +5,72 @@
       "path": "kubernetes/Services.md"
     },
     {
-      "basename": "kind",
-      "path": "kubernetes/kind.md"
+      "basename": "Deployments",
+      "path": "kubernetes/Deployments.md"
     },
     {
-      "basename": "Servis Listesi",
-      "path": "apinizer/Servis Listesi.md"
+      "basename": "Objects",
+      "path": "kubernetes/Objects.md"
+    },
+    {
+      "basename": "Kubernetes - Eski",
+      "path": "apinizer/Kubernetes - Eski.md"
+    },
+    {
+      "basename": "Kubernetes -Yeni",
+      "path": "apinizer/Kubernetes -Yeni.md"
+    },
+    {
+      "basename": "apinizer_worker",
+      "path": "_images/apinizer_worker.png"
+    },
+    {
+      "basename": "apinizer_portal",
+      "path": "_images/apinizer_portal.png"
     },
     {
       "basename": "Erişim Bilgileri",
       "path": "apinizer/Erişim Bilgileri.md"
     },
     {
-      "basename": "Namespaces",
-      "path": "kubernetes/Namespaces.md"
+      "basename": "Servis Listesi",
+      "path": "apinizer/Servis Listesi.md"
     },
     {
-      "basename": "Objects",
-      "path": "kubernetes/Objects.md"
+      "basename": "clusterip",
+      "path": "_images/clusterip.png"
+    },
+    {
+      "basename": "gitversion copy",
+      "path": "gitversion/gitversion copy.md"
+    },
+    {
+      "basename": "gitversion",
+      "path": "gitversion/gitversion.md"
+    },
+    {
+      "basename": "git remote",
+      "path": "git/git remote.md"
+    },
+    {
+      "basename": "git config",
+      "path": "git/git config.md"
+    },
+    {
+      "basename": "git internals",
+      "path": "git/git internals/git internals.md"
+    },
+    {
+      "basename": "markdown",
+      "path": "markdown/markdown.md"
+    },
+    {
+      "basename": "kind",
+      "path": "kubernetes/kind.md"
+    },
+    {
+      "basename": "Namespaces",
+      "path": "kubernetes/Namespaces.md"
     },
     {
       "basename": "Annotations",
@@ -35,10 +83,6 @@
     {
       "basename": "Labels",
       "path": "kubernetes/Labels.md"
-    },
-    {
-      "basename": "Deployments",
-      "path": "kubernetes/Deployments.md"
     },
     {
       "basename": "ReplicaSet",
@@ -65,28 +109,12 @@
       "path": "kubernetes/Nodes.md"
     },
     {
-      "basename": "git internals",
-      "path": "git/git internals/git internals.md"
-    },
-    {
-      "basename": "git remote",
-      "path": "git/git remote.md"
-    },
-    {
-      "basename": "markdown",
-      "path": "markdown/markdown.md"
-    },
-    {
       "basename": "belvedere",
       "path": "markdown/belvedere.JPG"
     },
     {
       "basename": "Turkish_Sentiment_Analysis_Using_BERT",
       "path": "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf"
-    },
-    {
-      "basename": "gitversion",
-      "path": "gitversion/gitversion.md"
     }
   ],
   "omittedPaths": [],

@@ -124,3 +124,76 @@ Kubernetes ortamında bir Deployment'ın rollout olması, o Deployment altında 
 ```
 kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
 ```
+
+
+
+```
+kubectl get deployment whoami-deployment -n whoami -o yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"whoami-deployment","namespace":"whoami"},"spec":{"replicas":5,"selector":{"matchLabels":{"app":"whoami"}},"template":{"metadata":{"labels":{"app":"whoami"}},"spec":{"containers":[{"image":"kurkoc/whoami:131","name":"whoami","ports":[{"containerPort":8080}]}]}}}}
+  creationTimestamp: "2025-04-24T08:25:03Z"
+  generation: 1
+  name: whoami-deployment
+  namespace: whoami
+  resourceVersion: "5670"
+  uid: 4435de2e-dfbe-4087-8af1-634266d0a4df
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 5
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: whoami
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: whoami
+    spec:
+      containers:
+      - image: kurkoc/whoami:131
+        imagePullPolicy: IfNotPresent
+        name: whoami
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 5
+  conditions:
+  - lastTransitionTime: "2025-04-24T08:25:04Z"
+    lastUpdateTime: "2025-04-24T08:25:04Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2025-04-24T08:25:03Z"
+    lastUpdateTime: "2025-04-24T08:25:04Z"
+    message: ReplicaSet "whoami-deployment-5786548f4d" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 5
+  replicas: 5
+  updatedReplicas: 5
+
+```

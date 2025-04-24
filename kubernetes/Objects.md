@@ -177,3 +177,78 @@ kubectl explain deployment --recursive
 
 diyerek de içiçe bütün alanları detaylarıyla beraber getirebiliriz.
 
+---
+
+```
+kubectl config view
+
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://127.0.0.1:61325
+  name: kind-kurkoc-cluster
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://172.16.100.20:6443
+  name: kubernetes
+contexts:
+- context:
+    cluster: kind-kurkoc-cluster
+    user: kind-kurkoc-cluster
+  name: kind-kurkoc-cluster
+- context:
+    cluster: kubernetes
+    user: kubernetes-admin
+  name: kubernetes-admin@kubernetes
+current-context: kubernetes-admin@kubernetes
+kind: Config
+preferences: {}
+users:
+- name: kind-kurkoc-cluster
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED
+- name: kubernetes-admin
+  user:
+    client-certificate-data: DATA+OMITTED
+    client-key-data: DATA+OMITTED
+
+```
+
+data alanları uzun olduğu için gösterilmiyor. Eğer istenirse ` --flatten` seçeneği ile tüm dosya görülebilir.
+
+```
+kubectl config current-context
+
+kind-kurkoc-cluster
+```
+
+
+```
+kubectl config get-contexts
+
+*   kind-kurkoc-cluster           kind-kurkoc-cluster   kind-kurkoc-cluster
+    kubernetes-admin@kubernetes   kubernetes            kubernetes-admin
+```
+
+```
+kubectl config get-clusters
+
+NAME
+kind-kurkoc-cluster
+kubernetes
+```
+
+```
+kubectl config use-context kubernetes-admin@kubernetes
+
+Switched to context "kubernetes-admin@kubernetes".
+```
+
+```
+kubectl config current-context
+
+kubernetes-admin@kubernetes
+```
+

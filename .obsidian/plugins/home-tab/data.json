@@ -24,6 +24,14 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
+      "filepath": "kubernetes/Untitled.md",
+      "timestamp": 1745579169519
+    },
+    {
+      "filepath": "kubernetes/Objects.md",
+      "timestamp": 1745571526767
+    },
+    {
       "filepath": "apinizer/Kubernetes - Eski.md",
       "timestamp": 1745567638410
     },
@@ -34,14 +42,6 @@
     {
       "filepath": "kubernetes/Secrets.md",
       "timestamp": 1745503104065
-    },
-    {
-      "filepath": "apinizer/Erişim Bilgileri.md",
-      "timestamp": 1745502644746
-    },
-    {
-      "filepath": "apinizer/Servis Listesi.md",
-      "timestamp": 1745502412140
     }
   ],
   "bookmarkedFileStore": [],

@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "RBAC",
+      "path": "kubernetes/RBAC.md"
+    },
+    {
+      "basename": "Objects",
+      "path": "kubernetes/Objects.md"
+    },
+    {
       "basename": "Kubernetes - Eski",
       "path": "apinizer/Kubernetes - Eski.md"
     },
@@ -39,10 +47,6 @@
     {
       "basename": "Deployments",
       "path": "kubernetes/Deployments.md"
-    },
-    {
-      "basename": "Objects",
-      "path": "kubernetes/Objects.md"
     },
     {
       "basename": "apinizer_worker",

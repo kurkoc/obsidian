@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kubernetes/RBAC.md",
+                "file": "kubernetes/Objects.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "RBAC"
+              "title": "Objects"
             }
           }
         ]
@@ -203,8 +203,10 @@
   },
   "active": "50ff44527f9aad3b",
   "lastOpenFiles": [
-    "kubernetes/Objects.md",
+    "kubernetes/Labels.md",
     "kubernetes/RBAC.md",
+    "_images/rbac.png",
+    "kubernetes/Objects.md",
     "apinizer/Kubernetes - Eski.md",
     "apinizer/Kubernetes -Yeni.md",
     "kubernetes/Secrets.md",
@@ -228,20 +230,17 @@
     "kubernetes/Namespaces.md",
     "kubernetes/Annotations.md",
     "kubernetes/StatefulSet.md",
-    "kubernetes/Labels.md",
     "kubernetes/ReplicaSet.md",
     "kubernetes/Probes.md",
     "kubernetes/Liveness Probes.md",
     "kubernetes/Readiness Probes.md",
     "kubernetes/Startup Probes.md",
-    "kubernetes/ConfigMaps.md",
     "apinizer",
     "kubernetes",
     "git/git internals/git-objects.png",
     "git/git internals/git-commit2.png",
     "git/git internals/git-commit1.png",
     "git/git internals/git-heads-branch.png",
-    "git/git internals/git-tree1.png",
     "git/git internals",
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion",

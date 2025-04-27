@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "Objects",
+      "path": "kubernetes/Objects.md"
+    },
+    {
+      "basename": "Labels",
+      "path": "kubernetes/Labels.md"
+    },
+    {
       "basename": "RBAC",
       "path": "kubernetes/RBAC.md"
     },
     {
-      "basename": "Objects",
-      "path": "kubernetes/Objects.md"
+      "basename": "rbac",
+      "path": "_images/rbac.png"
     },
     {
       "basename": "Kubernetes - Eski",
@@ -87,10 +95,6 @@
     {
       "basename": "StatefulSet",
       "path": "kubernetes/StatefulSet.md"
-    },
-    {
-      "basename": "Labels",
-      "path": "kubernetes/Labels.md"
     },
     {
       "basename": "ReplicaSet",

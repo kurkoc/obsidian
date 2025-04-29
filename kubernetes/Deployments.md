@@ -122,78 +122,86 @@ Kubernetes ortamında bir Deployment'ın rollout olması, o Deployment altında 
 4. Bu süreçte sistem kesintiye uğramadan, kullanıcılar hizmet almaya devam eder.
 
 ```
-kubectl set image deployment/nginx-deployment nginx=nginx:1.16.1
+kubectl set image deployment/whoami-deployment whoami=kurkoc/whoami:136
+
+deployment.apps/whoami-deployment image updated
+```
+
+Bu şekilde direk image'i update edebileceğimiz gibi;
+
+```
+kubectl edit deployment -n whoami whoami-deployment
+```
+
+diyerek default text editöründe açılan dosya üzerinde güncelleme yaparak da rollout işlemini sağlayabiliriz.
+
+
+```
+kubectl rollout status deployment/whoami-deployment -n whoami
+
+deployment "whoami-deployment" successfully rolled out
 ```
 
 
 
-```
-kubectl get deployment whoami-deployment -n whoami -o yaml
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"whoami-deployment","namespace":"whoami"},"spec":{"replicas":5,"selector":{"matchLabels":{"app":"whoami"}},"template":{"metadata":{"labels":{"app":"whoami"}},"spec":{"containers":[{"image":"kurkoc/whoami:131","name":"whoami","ports":[{"containerPort":8080}]}]}}}}
-  creationTimestamp: "2025-04-24T08:25:03Z"
-  generation: 1
-  name: whoami-deployment
-  namespace: whoami
-  resourceVersion: "5670"
-  uid: 4435de2e-dfbe-4087-8af1-634266d0a4df
-spec:
-  progressDeadlineSeconds: 600
-  replicas: 5
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      app: whoami
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: whoami
-    spec:
-      containers:
-      - image: kurkoc/whoami:131
-        imagePullPolicy: IfNotPresent
-        name: whoami
-        ports:
-        - containerPort: 8080
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-status:
-  availableReplicas: 5
-  conditions:
-  - lastTransitionTime: "2025-04-24T08:25:04Z"
-    lastUpdateTime: "2025-04-24T08:25:04Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2025-04-24T08:25:03Z"
-    lastUpdateTime: "2025-04-24T08:25:04Z"
-    message: ReplicaSet "whoami-deployment-5786548f4d" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 1
-  readyReplicas: 5
-  replicas: 5
-  updatedReplicas: 5
+Şimdi replicaset'lere bakarsak eğer;
 
 ```
+kubectl get rs -n whoami
+
+NAME                           DESIRED   CURRENT   READY   AGE
+whoami-deployment-5786548f4d   0         0         0       4d5h
+whoami-deployment-f564f7fc5    5         5         5       4m25s
+```
+
+Eski replicaset'teki bütün pod'lar sonlandırılırken, yeni oluşturulan replicaset'te 5 yeni pod oluşturulduğunu görebiliriz.
+
+
+```
+kubectl describe deployments -n whoami whoami-deployment
+
+Name:                   whoami-deployment
+Namespace:              whoami
+CreationTimestamp:      Thu, 24 Apr 2025 11:25:03 +0300
+Labels:                 <none>
+Annotations:            deployment.kubernetes.io/revision: 2
+Selector:               app=whoami
+Replicas:               5 desired | 5 updated | 5 total | 5 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=whoami
+  Containers:
+   whoami:
+    Image:         kurkoc/whoami:136
+    Port:          8080/TCP
+    Host Port:     0/TCP
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  whoami-deployment-5786548f4d (0/0 replicas created)
+NewReplicaSet:   whoami-deployment-f564f7fc5 (5/5 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set whoami-deployment-f564f7fc5 from 0 to 2
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set whoami-deployment-5786548f4d from 5 to 4
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set whoami-deployment-f564f7fc5 from 2 to 3
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set whoami-deployment-5786548f4d from 4 to 3
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set whoami-deployment-f564f7fc5 from 3 to 4
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set whoami-deployment-5786548f4d from 3 to 2
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled up replica set whoami-deployment-f564f7fc5 from 4 to 5
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set whoami-deployment-5786548f4d from 2 to 1
+  Normal  ScalingReplicaSet  10m   deployment-controller  Scaled down replica set whoami-deployment-5786548f4d from 1 to 0
+
+```
+
+Burada da `events` kısmında eski replicaset'in giderek scale down olduğunu, yeni replicaset'in ise scale up olduğunu görebiliriz. Yine `OldReplicaSets` ve `NewReplicaSet` kısmında da eski ve yeni replicaset'lerin isimlerini görebiliriz.

@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "monitoring",
+      "path": "monitoring/monitoring.md"
+    },
+    {
+      "basename": "prometheus_rules",
+      "path": "_images/prometheus_rules.png"
+    },
+    {
+      "basename": "grafana_sources",
+      "path": "_images/grafana_sources.png"
+    },
+    {
+      "basename": "prometheus",
+      "path": "_images/prometheus.png"
+    },
+    {
+      "basename": "alloy",
+      "path": "_images/alloy.png"
+    },
+    {
+      "basename": "minio",
+      "path": "_images/minio.png"
+    },
+    {
+      "basename": "portainer_dashboard",
+      "path": "_images/portainer_dashboard.png"
+    },
+    {
+      "basename": "kind",
+      "path": "kubernetes/kind.md"
+    },
+    {
+      "basename": "Kubernetes - Eski",
+      "path": "apinizer/Kubernetes - Eski.md"
+    },
+    {
+      "basename": "Deployments",
+      "path": "kubernetes/Deployments.md"
+    },
+    {
+      "basename": "Pods",
+      "path": "kubernetes/Pods.md"
+    },
+    {
       "basename": "Objects",
       "path": "kubernetes/Objects.md"
     },
@@ -15,10 +59,6 @@
     {
       "basename": "rbac",
       "path": "_images/rbac.png"
-    },
-    {
-      "basename": "Kubernetes - Eski",
-      "path": "apinizer/Kubernetes - Eski.md"
     },
     {
       "basename": "Kubernetes -Yeni",
@@ -53,10 +93,6 @@
       "path": "kubernetes/Services.md"
     },
     {
-      "basename": "Deployments",
-      "path": "kubernetes/Deployments.md"
-    },
-    {
       "basename": "apinizer_worker",
       "path": "_images/apinizer_worker.png"
     },
@@ -79,10 +115,6 @@
     {
       "basename": "markdown",
       "path": "markdown/markdown.md"
-    },
-    {
-      "basename": "kind",
-      "path": "kubernetes/kind.md"
     },
     {
       "basename": "Namespaces",

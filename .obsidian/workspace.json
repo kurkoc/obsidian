@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "fa9da0dbce9711c8",
+        "id": "9a8e38aebc7e6605",
         "type": "tabs",
         "children": [
           {
-            "id": "50ff44527f9aad3b",
+            "id": "19fa18201ba73cb4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "kubernetes/Objects.md",
+                "file": "monitoring/monitoring.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Objects"
+              "title": "monitoring"
             }
           }
         ]
@@ -201,13 +201,29 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "50ff44527f9aad3b",
+  "active": "4bf9bf5cfb72b776",
   "lastOpenFiles": [
+    "_images/monitoring-light.png",
+    "_images/monitoring-dark.png",
+    "_images/prometheus_rules.png",
+    "monitoring/monitoring.md",
+    "_images/grafana_sources.png",
+    "_images/prometheus.png",
+    "_images/windows_exporter.png",
+    "_images/alloy_dashboard.png",
+    "_images/alloy.png",
+    "_images/minio.png",
+    "_images/portainer_list.png",
+    "Pasted.md",
+    "_images/portainer_dashboard.png",
+    "kubernetes/kind.md",
+    "monitoring",
+    "apinizer/Kubernetes - Eski.md",
+    "kubernetes/Deployments.md",
+    "kubernetes/Pods.md",
+    "kubernetes/Objects.md",
     "kubernetes/Labels.md",
     "kubernetes/RBAC.md",
-    "_images/rbac.png",
-    "kubernetes/Objects.md",
-    "apinizer/Kubernetes - Eski.md",
     "apinizer/Kubernetes -Yeni.md",
     "kubernetes/Secrets.md",
     "apinizer/Erişim Bilgileri.md",
@@ -216,38 +232,23 @@
     "git/git config.md",
     "git/git internals/git internals.md",
     "kubernetes/Services.md",
-    "kubernetes/Deployments.md",
-    "Pasted image 20250424150419.png",
-    "_images/apinizer_worker.png",
-    "_images/apinizer_portal.png",
-    "_images/apinizer_manager.png",
-    "_images/clusterip.png",
     "_images",
     "gitversion/gitversion copy.md",
     "gitversion/gitversion.md",
     "markdown/markdown.md",
-    "kubernetes/kind.md",
     "kubernetes/Namespaces.md",
     "kubernetes/Annotations.md",
     "kubernetes/StatefulSet.md",
     "kubernetes/ReplicaSet.md",
     "kubernetes/Probes.md",
-    "kubernetes/Liveness Probes.md",
-    "kubernetes/Readiness Probes.md",
-    "kubernetes/Startup Probes.md",
     "apinizer",
     "kubernetes",
-    "git/git internals/git-objects.png",
-    "git/git internals/git-commit2.png",
-    "git/git internals/git-commit1.png",
-    "git/git internals/git-heads-branch.png",
     "git/git internals",
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion",
     "git",
     "Excalidraw",
     "Untitled.canvas",
-    "personal/vs code for dotnet",
-    "markdown"
+    "personal/vs code for dotnet"
   ]
 }

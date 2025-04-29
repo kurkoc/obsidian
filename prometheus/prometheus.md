@@ -19,7 +19,11 @@ api_http_requests_total{method="POST", handler="/messages"}
 
 ![prometheus_architecture](../_images/prometheus_architecture.png)
 
-Prometheus, kaynakları izlemek için exporter olarak adlandırılan araçları(windows exporter, node-exporter, redis-exporter vb.) kullanır. Exporterlar, izlenecek olan kaynağa ait verileri Prometheus sisteminin anlayacağı biçime çevirerek HTTP protokolü(/metrics) üzerinden sunar. Prometheus, configuration dosyası üzerinde belirtilen exporter adreslerine belirlenen aralıklarla HTTP isteği yaparak(polling) verileri TSDB'ye kayıt eder. Kaydedilen veriler, PromQL kullanılarak Prometheus Web GUI, Grafana gibi araçlar üzerinden servis edilir.
+Prometheus, kaynakları izlemek için exporter olarak adlandırılan araçları(windows exporter, node-exporter, redis-exporter vb.) kullanır. Exporterlar, izlenecek olan kaynağa ait verileri Prometheus sisteminin anlayacağı biçime çevirerek HTTP protokolü(/metrics) üzerinden sunar. Prometheus, configuration dosyası üzerinde belirtilen exporter adreslerine belirlenen aralıklarla HTTP isteği yaparak(polling) verileri TSDB'ye kaydeder. 
+
+Kaydedilen veriler, PromQL kullanılarak Prometheus Web GUI, Grafana gibi araçlar üzerinden servis edilir.
+
+Rule tanımları yapılırsa, konfigüre edilen bir Alertmanager aracılığıyla, anomali içeren metric değerleri üzerinden Alertmanager kullanarak belirlenen notification arayüzleri aracılğıyla alert'ler üretilebilir.
 
 Prometheus server, 3 kısımdan oluşur.
 

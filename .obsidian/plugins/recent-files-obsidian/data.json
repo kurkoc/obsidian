@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "prometheus",
+      "path": "prometheus/prometheus.md"
+    },
+    {
+      "basename": "prometheus_architecture",
+      "path": "_images/prometheus_architecture.png"
+    },
+    {
       "basename": "monitoring",
       "path": "monitoring/monitoring.md"
     },

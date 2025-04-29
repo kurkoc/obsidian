@@ -24,24 +24,16 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
+      "filepath": "prometheus/prometheus.md",
+      "timestamp": 1745951302974
+    },
+    {
+      "filepath": "_images/prometheus_architecture.png",
+      "timestamp": 1745951285016
+    },
+    {
       "filepath": "monitoring/monitoring.md",
-      "timestamp": 1745937856489
-    },
-    {
-      "filepath": "prometheus_rules.png",
-      "timestamp": 1745937849441
-    },
-    {
-      "filepath": "_images/grafana_sources.png",
-      "timestamp": 1745936402015
-    },
-    {
-      "filepath": "_images/prometheus.png",
-      "timestamp": 1745936199410
-    },
-    {
-      "filepath": "_images/alloy.png",
-      "timestamp": 1745934991976
+      "timestamp": 1745947413852
     }
   ],
   "bookmarkedFileStore": [],

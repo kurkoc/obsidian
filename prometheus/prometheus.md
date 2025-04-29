@@ -61,25 +61,41 @@ scrape_configs:
 ```
 
 `scrape_interval` : Target'lardan ne sıklıkla scraping işlemi yapılacak. Default değeri 1m
+
 `scrape_timeout` : Bir target’tan scraping yaparken kullanılacak timeout süresi. interval süresinden fazla olamaz doğal olarak. Default değeri 10 sn
+
 `evaluation_interval` : Rule tanımlarımızın ne sıklıkla kontrol edileceği Defaul değeri 1m
+
 `external_labels` : label_name:label_value şeklindeki label'lar
+
 `query_log_file` : PromQL sorgularının kaydedileceği dosya
+
 `scrape_failure_log_file` : Scraping hatalarının kaydedileceği dosya
+
 `body_size_limit`: Scraping sonrasında gelen veri boyutu limiti. Size türünden belirtilir. Ör: 100MB . Default değeri 0'dır. Limit yoktur 
+
 `sample_limit` : Scraping işlemi sırasında gelen sample limiti. Default değeri 0'dır. Limit yoktur
+
 `label_limit` : Sample üzerinde belirtilen label adedi limiti. Default değeri 0'dır. Limit yoktur
 
 `rule_files` : Burada belirtilen glob pattern'e uyan rule dosyalarından rule tanımları eklenir. 
+
 `scrape_config_files`: Burada belirtilen glob pattern'e uyan config dosyalarından scraping tanımları eklenir.
+
 `scrape_configs` : scrape_config tipinde scraping tanımları
 
 #### scrape_config
-`job_name`: 
+
+`job_name`: Scraping job'ı için belirlenen isim
+
 `scrape_interval`: Burada interval değeri verilirse global’deki değer ezilir, verilmezse default olarak global.scrape_interval değeri alınır
+
 `scrape_timeout` : Burada timeout değeri verilirse global’deki değer ezilir, verilmezse de default olarak global.scrape_timeout değeri alınır
+
 `metrics_path` : Metric'lerin HTTP üzerinden getirileceği path. Default değeri /metrics dir.
+
 `schema` : Metric requestleri için hangi schema kullanılacak. Default değeri http'dir.
+
 `http_config` : Scraping işlemi sırasında kullanılacak http client ayarları. authentication/authorization, http header, tls ayarları vs
 - basic_auth : username ve password belirterek basic authentication bilgisi gönderilebilir.
 - authorization : bütün request'lerde gönderilecek Authorization header'ı. type:Bearer, credentials: token bilgisi gönderilir.

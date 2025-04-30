@@ -5,12 +5,16 @@
       "path": "prometheus/prometheus.md"
     },
     {
-      "basename": "prometheus_architecture",
-      "path": "_images/prometheus_architecture.png"
-    },
-    {
       "basename": "monitoring",
       "path": "monitoring/monitoring.md"
+    },
+    {
+      "basename": "prometheus_data",
+      "path": "_images/prometheus_data.png"
+    },
+    {
+      "basename": "prometheus_architecture",
+      "path": "_images/prometheus_architecture.png"
     },
     {
       "basename": "prometheus_rules",

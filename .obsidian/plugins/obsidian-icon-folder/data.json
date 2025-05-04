@@ -6,11 +6,11 @@
     "emojiStyle": "native",
     "iconColor": null,
     "recentlyUsedIcons": [
+      "🎚",
       "🔥",
       "LiPlugZap2",
       "LiBookMarked",
-      "LiBetweenVerticalStart",
-      "LiGitPullRequest"
+      "LiBetweenVerticalStart"
     ],
     "recentlyUsedIconsSize": 5,
     "rules": [],
@@ -39,5 +39,6 @@
   "kubernetes": "☸",
   "markdown": "LiBookMarked",
   "apinizer": "LiPlugZap2",
-  "prometheus": "🔥"
+  "prometheus": "🔥",
+  "loki": "🎚"
 }

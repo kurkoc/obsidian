@@ -92,7 +92,7 @@ scrape_configs:
 ```
 docker volume create prometheus-data
 docker network create monitoring
-docker run -p 9090:9090 -v /path/to/prometheus.yml:/etc/prometheus/prometheus.yml -v prometheus-data:/prometheus --network monitoring prom/prometheus
+docker run -d -p 9090:9090 --name prometheus -v /etc/prometheus:/etc/prometheus -v prometheus-data:/prometheus --network monitoring prom/prometheus
 ```
 
 ```
@@ -226,7 +226,7 @@ scrape_configs:
 
 `scrape_timeout` : Bir target’tan scraping yaparken kullanılacak timeout süresi. interval süresinden fazla olamaz doğal olarak. Default değeri 10 sn
 
-`evaluation_interval` : Rule tanımlarımızın ne sıklıkla kontrol edileceği Defaul değeri 1m
+`evaluation_interval` : Rule tanımlarımızın ne sıklıkla kontrol edileceği Default değeri 1m
 
 `external_labels` : label_name:label_value şeklindeki label'lar
 
@@ -371,6 +371,8 @@ Bunlar;
 
 Prometheus üzerinde rule'lar eklemek için, rule tanımlarını içeren YAML formatında bir dosya oluşturup ana Prometheus konfigürasyonundaki `rule_files` alanında bildirimini yaparız. Bu işlemin ardından SIGHUP ile ya da reload ile Prometheus konfigürasyonunun yenilenmesini sağlarız.
 
+Ana prometheus konfigürasyon dosyasında, rule tanımlarının ne kadar sürede kontrol edileeğine dair `evaluation_interval` alanı mevcuttur. Değeri, default olarak 1 dk'dır. Yani rule tanımları dakikada bir kontrol edilir.
+
 >Rule tanımlarını bildirmeden önce, format olarak doğruluğunu kontrol etmek için promtool kullanabiliriz. Biz kurulumu docker üzerinden yaptığımız için container üzerinde /bin/promtool path'inde promtool binary'sini görebiliriz.
 > `promtool check rules /path/to/example.rules.yml`
 
@@ -391,5 +393,382 @@ groups:
 
 Bir recording rule tanımlayarak, yaptığımız hesaplama üzerinden yeni isimde bir metric oluşmasını sağlayabiliriz. Böylelikle ihtiyaç olan her yerde bu yeni metric'i kullanabiliriz. Bu bizi sorgulama sırasındaki hesaplama maliyetinden kurtardığı gibi(tabi bu sefer de veri yazarken bir maliyet olacaktır), değerin merkezi tek bir yerden oluşturulmasını da sağlamış olacaktır. 
 
+```
+prometheus_http_response_size_bytes_sum{handler="/metrics"} / prometheus_http_response_size_bytes_count{handler="/metrics"} / 1024
+```
 
+recording_rules.yml isminde bir dosya oluşturduk ve içerisinde rule tanımımızı yaptık.
+
+```
+groups:
+  - name: custom_rules
+    rules:
+      - record: metrics_endpoint_average_response_size_kb
+        expr: prometheus_http_response_size_bytes_sum{handler="/metrics"} / prometheus_http_response_size_bytes_count{handler="/metrics"} / 1024
+```
+
+Çalışan prometheus container'ına bağlandıktan sonra oluşturduğumuz dosyayı kontrol edebiliriz.
+
+```
+/bin/promtool check rules /etc/prometheus/recording_rules.yml 
+
+Checking /etc/prometheus/recording_rules.yml
+  SUCCESS: 1 rules found
+```
+
+Artık ana prometheus konfigürasyon dosyamızdaki rule'lar ile ilgili alana dosyayı ekleyebiliriz.
+
+```
+global:
+  scrape_interval: 15s
+
+rule_files:
+  - "recording-rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+```
+
+Bizim prometheus'umuz docker üzerinde çalıştığı için pid'i 1'dir ama yine de kontrol edebiliriz.
+
+```
+docker exec d1ff5dc7749e ps aux | grep prometheus
+
+1 nobody    0:05 /bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/prometheus
+```
+
+pid değerimizin 1 olduğunu gördükten sonra aşağıdaki komutlarla ana prometheus konfigürasyonumuzu reload edebiliriz.
+
+```
+docker exec d1ff5dc7749e kill -s SIGHUP 1
+```
+
+ya da
+
+```
+docker exec d1ff5dc7749e killall -HUP prometheus
+```
+
+Şimdi artık prometheus arayüzünden Status > Rule health menüsü aracılığıyla prometheus üzerinde tanımlı rule'ları listelediğimiz ekrana gelirsek eğer, tanımlamış olduğumuz recording rule tanımını görebiliriz.
+
+![prometheus_rules_list](../_images/prometheus_rules_list.png)
+
+
+Query menüsünden, normalde topladığımız metricler içerisinde böyle bir metric olmamasına rağmen artık geldiğini görebiliriz.
+
+![prometheus_recording_rule](../_images/prometheus_recording_rule.png)
+
+
+#### Alerting Rules
+
+Alerting rules, Prometheus metricleri üzerinden bazı koşullar tanımlamamıza ve bu koşullara uymayan durumlarda çeşitli alertler oluşturabilmemize imkan tanır.
+
+```
+groups:
+- name: example
+  labels:
+    team: myteam
+  rules:
+  - alert: HighRequestLatency
+    expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
+    for: 10m
+    keep_firing_for: 5m
+    labels:
+      severity: page
+    annotations:
+      summary: High request latency
+```
+
+Alert state'leri;
+- Inactive; henüz gerçekleşmeyen bir koşula sahip rule inactive durumundadır.
+- Pending; istenmeyen koşul gerçekleştirilmiştir ancak tetiklenmeden önce bir süre beklenmektedir
+- Firing; alert active durumundadır ve tetiklenmiştir
+- Resolved; alert oluşturan durum şu an düzelmiş görünmektedir.
+
+`for` değeri isteğe bağlıdır ve prometheus'un istenmeyen koşul ile ilk karşılaşmasınını üzerinden ne kadar süre daha aynı durum devam ettikten sonra alert'i tetikleyeceğini belirler. Aktif olan ancak henüz tetiklenmeyen öğeler bu süreç boyunca pending durumunda olur. Kısaca bir alert kuralı ilk kez oluştuğunda, "pending" durumuna geçer. Koşul "for" süresi boyunca hala istenmeyen değerde kalırsa, alert "firing" durumuna geçer.
+
+`keep_firing_for` değeri de isteğe bağlıdır ve Prometheus'a bu uyarıyı, tetikleme koşulu gerçekleştikten sonra geri düzelse dahi belirtilen süre boyunca "firing" durumunda kalmaya devam etmesini söyleyen değerdir. Hızlı değişen koşullarda sürekli alert oluşma ve kapanmasını ("flapping") önler. Ayrıca, sorun çözülmüş olsa bile operasyon ekibinin durumdan haberdar olmasını sağlar.
+
+```
+groups:
+- name: EmbeddedExporter
+  rules:
+
+    - alert: PrometheusJobMissing
+      expr: 'absent(up{job="prometheus"})'
+      for: 0m
+      labels:
+        severity: warning
+      annotations:
+        summary: Prometheus job missing (instance {{ $labels.instance }})
+        description: "A Prometheus job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusTargetMissing
+      expr: 'up == 0'
+      for: 0m
+      labels:
+        severity: critical
+      annotations:
+        summary: Prometheus target missing (instance {{ $labels.instance }})
+        description: "A Prometheus target has disappeared. An exporter might be crashed.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusAllTargetsMissing
+      expr: 'sum by (job) (up) == 0'
+      for: 0m
+      labels:
+        severity: critical
+      annotations:
+        summary: Prometheus all targets missing (instance {{ $labels.instance }})
+        description: "A Prometheus job does not have living target anymore.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusTargetMissingWithWarmupTime
+      expr: 'sum by (instance, job) ((up == 0) * on (instance) group_left(__name__) (node_time_seconds - node_boot_time_seconds > 600))'
+      for: 0m
+      labels:
+        severity: critical
+      annotations:
+        summary: Prometheus target missing with warmup time (instance {{ $labels.instance }})
+        description: "Allow a job time to start up (10 minutes) before alerting that it's down.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusConfigurationReloadFailure
+      expr: 'prometheus_config_last_reload_successful != 1'
+      for: 0m
+      labels:
+        severity: warning
+      annotations:
+        summary: Prometheus configuration reload failure (instance {{ $labels.instance }})
+        description: "Prometheus configuration reload error\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusTooManyRestarts
+      expr: 'changes(process_start_time_seconds{job=~"prometheus|pushgateway|alertmanager"}[15m]) > 2'
+      for: 0m
+      labels:
+        severity: warning
+      annotations:
+        summary: Prometheus too many restarts (instance {{ $labels.instance }})
+        description: "Prometheus has restarted more than twice in the last 15 minutes. It might be crashlooping.\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+    - alert: PrometheusAlertmanagerJobMissing
+      expr: 'absent(up{job="alertmanager"})'
+      for: 0m
+      labels:
+        severity: warning
+      annotations:
+        summary: Prometheus AlertManager job missing (instance {{ $labels.instance }})
+        description: "A Prometheus AlertManager job has disappeared\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+```
+
+Örnek olarak `alerting_rules.yml` isminde bir dosya oluşturduk ve ana prometheus konfigürasyonumuza bu dosyayı bildirdik. `evaluation_interval` değeri ile de rule tanımlarının default değeri olan 1 dk'da bir değil 30 saniye aralıklarla kontrol edilmesini bildirdik. Bu değer istenilirse rule tanımları içerisindeki `interval` değeri tarafından ezilebilir.
+
+```
+global:
+  scrape_interval: 15s
+  evaluation_interval: 30s
+rule_files:
+  - "recording_rules.yml"
+  - "alerting_rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+```
+
+Sonrasında ana konfigürasyonumuzu reload ettik.
+
+
+![prometheus_alerting_rules](../_images/prometheus_alerting_rules.png)
+
+Alerts menüsüne bakacak olursak eğer;
+
+Rule Health menüsünde olduğu gibi rule'larımız listelenir ancak burada rule'ların inactive, pending, firing gibi durumları da takip edilebilir. Bütün rule'larımız inactive olmasına rağmen, PrometheusAlertmanagerJobMissing isimli rule; prometheus üzerinde kayıtlı bir alertmanager olmadığı için alert oluşturmaktadır.
+
+![prometheus_alertfiring](../_images/prometheus_alertfiring.png)
+
+
+
+
+### Alertmanager
+
+Alertmanager, Prometheus gibi client uygulamalar tarafından gönderilen uyarıları işleyerek eposta, webhook, on-call sistemler gibi ortamlar üzerinden bildirim yapmaya yarayan bir uygulamadır. Uyarıları gruplama, tekilleştirme, engelleme, susturma gibi pek çok özellik de içerir.
+
+**Grouping** benzer nitelikteki uyarıları tek bir bildirim halinde kategorize eder. Bu, özellikle birçok sistemin aynı anda arızalandığı ve binlerce uyarının aynı anda tetiklenebileceği büyük kesintiler sırasında kullanışlıdır.
+
+**Inhibition**, root cause gibi düşünülebilecek alertler zaten tetiklenmişken, belirli alertler için bildirimleri bastırma kavramıdır. Örnek olarak, bir cluster'a anlık olarak erişemediğimizi ve bu cluster üzerindeki servislerle alakalı  yüzlerce rule tanımımız olduğunu varsayalım.Alertmanager, söz konusu cluster'a erişemediği için bir alert tetiklediğinde, cluster ile alakalı diğer tüm alertleri sessize alacak şekilde yapılandırılabilir. Çünkü ana sorun olan cluster'a erişememek, devamındaki yüzlerce alert'in de sebebidir.
+
+Bu, asıl sorunla ilgisi olmayan yüzlerce veya binlerce uyarı için bildirim yapılmasını önler.
+
+**Silences** ise uyarıları belirli bir süre için sessize almanın basit bir yoludur. Gelen uyarının, bir silence tanımı ile eşleşip eşleşmediği kontrol edilir. Eşleşiyorlarsa, bu uyarı için hiçbir bildirim gönderilmez. Silence işlemi web yönetim ekranından yapılır.
+
+#### Configuration
+
+```
+groups:
+  [smtp...]
+  [jira...]
+  [slack]
+  [victorops]
+  [pagerduty]
+  [opsgenie]
+  [rocketchat]
+  [wechat]
+  [telegram]
+  [webex]
+  [http_config]
+  [resolve_timeout: duration | default=5m]
+
+templates:
+  - <filepath>
+
+route: <route>
+
+receivers:
+  - <receiver>
+
+inhibit_rules:
+  - <inhibit_rule>
+
+time_intervals:
+  - <time_interval>
+```
+
+Route bloğunda bir routing tree üzerindeki node'ları tanımlar. 
+
+Sisteme gelen bir alert, route tanımlarına en tepeden girer. Sonrasında alt node'ları gezmeye başlar. Bir node ile eşleşirse `continue` değerine göre ya durur ya da alt node'lar ile eşleşme aramaya devam eder. Bir alert hiçbir node ile eşleşemezse, ana node'un konfigürasyonuna göre işlem görür. 
+
+```
+route:
+  receiver: 'default-receiver'
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  group_by: [cluster, alertname]
+  routes:
+  
+  - receiver: 'database-pager'
+    group_wait: 10s
+    matchers:
+    - service=~"mysql|cassandra"
+  
+  - receiver: 'frontend-pager'
+    group_by: [product, environment]
+    matchers:
+    - team="frontend"
+
+  - receiver: 'dev-pager'
+    matchers:
+      - service="inhouse-service"
+    mute_time_intervals:
+      - offhours
+      - holidays
+    continue: true
+
+  - receiver: 'on-call-pager'
+    matchers:
+      - service="inhouse-service"
+    active_time_intervals:
+      - offhours
+      - holidays
+```
+
+Aşağıdaki alt route tanımlarıyla eşleşmeyen tüm alert'ler root node üzerinde kalacak ve default-receiver'a gönderilecek.
+
+#### Kurulum
+
+```
+route:
+  group_wait: 5s
+  receiver: webhook_receiver
+
+receivers:
+  - name: webhook_receiver
+    webhook_configs:
+      - url: 'https://webhook.site/4900787e-dee1-466c-9509-c15edce17a4f'
+        send_resolved: false
+```
+
+
+
+
+```
+docker volume create alertmanager-data
+
+docker run -d --name alertmanager -p 9093:9093 -v /etc/alertmanager/:/etc/alertmanager/ -v alertmanager-data:/alertmanager --network monitoring quay.io/prometheus/alertmanager
+```
+
+Docker üzerinden çalıştırdığımızda, default olarak aşağıdaki flag'lerle çalışır.
+
+```
+/bin/alertmanager --config.file=/etc/alertmanager/alertmanager.yml --storage.path=/alertmanager
+```
+
+
+Alertmanager'i çalıştırdıktan sonra, ana prometheus konfigürasyonumuzu da güncelledik.
+
+```
+global:
+  scrape_interval: 15s
+  evaluation_interval: 30s
+rule_files:
+  - "recording_rules.yml"
+  - "alerting_rules.yml"
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+alerting:
+  alertmanagers:
+    - scheme: http
+      static_configs:
+        - targets: [ 'alertmanager:9093' ]
+```
+
+
+
+![alertmanager_discovery][../_images/alertmanager_discovery.png]
+
+
+
+```
+{
+  "receiver": "webhook_receiver",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "PrometheusAlertmanagerJobMissing",
+        "job": "alertmanager",
+        "severity": "warning"
+      },
+      "annotations": {
+        "description": "A Prometheus AlertManager job has disappeared\n  VALUE = 1\n  LABELS = map[job:alertmanager]",
+        "summary": "Prometheus AlertManager job missing (instance )"
+      },
+      "startsAt": "2025-05-01T12:15:47.321Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://d1ff5dc7749e:9090/graph?g0.expr=absent%28up%7Bjob%3D%22alertmanager%22%7D%29&g0.tab=1",
+      "fingerprint": "2e3e2a1e805112f7"
+    }
+  ],
+  "groupLabels": {},
+  "commonLabels": {
+    "alertname": "PrometheusAlertmanagerJobMissing",
+    "job": "alertmanager",
+    "severity": "warning"
+  },
+  "commonAnnotations": {
+    "description": "A Prometheus AlertManager job has disappeared\n  VALUE = 1\n  LABELS = map[job:alertmanager]",
+    "summary": "Prometheus AlertManager job missing (instance )"
+  },
+  "externalURL": "http://1c864bf8d984:9093",
+  "version": "4",
+  "groupKey": "{}:{}",
+  "truncatedAlerts": 0
+}
+```
 

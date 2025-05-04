@@ -24,16 +24,24 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
+      "filepath": "loki/loki.md",
+      "timestamp": 1746298664823
+    },
+    {
+      "filepath": "_images/loki_arch.png",
+      "timestamp": 1746298646732
+    },
+    {
       "filepath": "prometheus/prometheus.md",
-      "timestamp": 1746019105543
+      "timestamp": 1746209772199
+    },
+    {
+      "filepath": "kubernetes/ConfigMaps.md",
+      "timestamp": 1746204897595
     },
     {
       "filepath": "monitoring/monitoring.md",
-      "timestamp": 1746019072481
-    },
-    {
-      "filepath": "_images/prometheus_data.png",
-      "timestamp": 1746016042764
+      "timestamp": 1746106036336
     }
   ],
   "bookmarkedFileStore": [],

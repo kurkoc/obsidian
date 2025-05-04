@@ -211,3 +211,43 @@ spec:
         - configMapRef:
             name: demo-config
 ```
+
+#### Volume Olarak
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-volume-pod
+  labels:
+    app: config-reader
+spec:
+  restartPolicy: Never
+  containers:
+  - name: config-reader
+    image: busybox
+    command: ["/bin/sh", "-c"]
+    args:
+    - echo "Listing files in /etc/configs:";
+      ls -Al /etc/configs;
+    volumeMounts:
+    - name: configmap-file-volume
+      mountPath: /etc/configs
+  volumes:
+  - name: configmap-file-volume
+    configMap:
+      name: configmap-basic
+```
+
+```
+kubectl logs configmap-volume-pod
+
+Listing files in /etc/configs:
+total 4
+drwxr-xr-x    2 root     root          4096 May  2 17:09 ..2025_05_02_17_09_15.449611640
+lrwxrwxrwx    1 root     root            31 May  2 17:09 ..data -> ..2025_05_02_17_09_15.449611640
+lrwxrwxrwx    1 root     root            20 May  2 17:09 database_host -> ..data/database_host
+lrwxrwxrwx    1 root     root            17 May  2 17:09 debug_mode -> ..data/debug_mode
+lrwxrwxrwx    1 root     root            16 May  2 17:09 log_level -> ..data/log_level
+```
+

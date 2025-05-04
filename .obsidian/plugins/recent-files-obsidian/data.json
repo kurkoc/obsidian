@@ -1,12 +1,32 @@
 {
   "recentFiles": [
     {
+      "basename": "loki",
+      "path": "loki/loki.md"
+    },
+    {
+      "basename": "loki_arch",
+      "path": "_images/loki_arch.png"
+    },
+    {
       "basename": "prometheus",
       "path": "prometheus/prometheus.md"
     },
     {
+      "basename": "ConfigMaps",
+      "path": "kubernetes/ConfigMaps.md"
+    },
+    {
       "basename": "monitoring",
       "path": "monitoring/monitoring.md"
+    },
+    {
+      "basename": "prometheus_alerting_rules",
+      "path": "_images/prometheus_alerting_rules.png"
+    },
+    {
+      "basename": "prometheus_rules_list",
+      "path": "_images/prometheus_rules_list.png"
     },
     {
       "basename": "prometheus_data",
@@ -147,10 +167,6 @@
     {
       "basename": "Probes",
       "path": "kubernetes/Probes.md"
-    },
-    {
-      "basename": "ConfigMaps",
-      "path": "kubernetes/ConfigMaps.md"
     },
     {
       "basename": "DaemonSet",

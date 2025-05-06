@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "Kubernetes - Eski",
+      "path": "apinizer/Kubernetes - Eski.md"
+    },
+    {
       "basename": "loki",
       "path": "loki/loki.md"
+    },
+    {
+      "basename": "monitoring",
+      "path": "monitoring/monitoring.md"
     },
     {
       "basename": "loki_arch",
@@ -15,10 +23,6 @@
     {
       "basename": "ConfigMaps",
       "path": "kubernetes/ConfigMaps.md"
-    },
-    {
-      "basename": "monitoring",
-      "path": "monitoring/monitoring.md"
     },
     {
       "basename": "prometheus_alerting_rules",
@@ -63,10 +67,6 @@
     {
       "basename": "kind",
       "path": "kubernetes/kind.md"
-    },
-    {
-      "basename": "Kubernetes - Eski",
-      "path": "apinizer/Kubernetes - Eski.md"
     },
     {
       "basename": "Deployments",

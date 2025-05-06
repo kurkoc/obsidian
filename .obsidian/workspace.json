@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "loki/loki.md",
+                "file": "apinizer/Kubernetes - Eski.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "loki"
+              "title": "Kubernetes - Eski"
             }
           }
         ]
@@ -201,24 +201,23 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "4bf9bf5cfb72b776",
+  "active": "19fa18201ba73cb4",
   "lastOpenFiles": [
+    "loki/loki.md",
+    "monitoring/monitoring.md",
+    "_images/loki_streamsharding.png",
+    "Pasted image 20250505145104.png",
+    "Pasted image 20250505145115.png",
+    "_images/loki_ssdmode.png",
     "_images/loki_monolithic_mode.png",
     "_images/loki_architecture.png",
     "_images/loki_labels.png",
     "_images/loki_arch.png",
-    "loki/loki.md",
     "prometheus/prometheus.md",
     "loki",
     "kubernetes/ConfigMaps.md",
     "_images/alertmanager_discovery.png",
     "_images/prometheus_alertfiring.png",
-    "monitoring/monitoring.md",
-    "_images/prometheus_alerting_rules.png",
-    "_images/prometheus_alerting_rules.png",
-    "_images/prometheus_rules_list.png",
-    "_images/prometheus_recording_rule.png",
-    "_images/prometheus_chunk.png",
     "prometheus",
     "Pasted.md",
     "kubernetes/kind.md",

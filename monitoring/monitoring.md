@@ -131,12 +131,17 @@ Bir takım dahili endpoint yardımıyla, uygulamanın sağlık durumu kontrol ed
 
 Örneğin;
 
--          [http://172.16.77.123:3100/ready](http://172.16.77.123:3100/ready)  endpoint’i üzerinden genel servis durumuna
--          [http://172.16.77.123:3100/services](http://172.16.77.123:3100/services) endpoint’i üzerinden dahili componentlerin durumuna
--          [http://172.16.77.123:3100/config](http://172.16.77.123:3100/config) endpoint’i üzerinden mevcut konfigürasyon bilgilerine
--          [http://172.16.77.123:3100/loki/api/v1/labels](http://172.16.77.123:3100/loki/api/v1/labels)
--          [http://172.16.77.123:3100/metrics](http://172.16.77.123:3100/metrics)
--          [http://172.16.77.123:3100/loki/api/v1/status/buildinfo](http://172.16.77.123:3100/loki/api/v1/status/buildinfo)
+- [http://172.16.77.123:3100/ready](http://172.16.77.123:3100/ready)  endpoint’i üzerinden genel servis durumuna
+- [http://172.16.77.123:3100/services](http://172.16.77.123:3100/services) endpoint’i üzerinden dahili componentlerin durumuna
+- [http://172.16.77.123:3100/config](http://172.16.77.123:3100/config) endpoint’i üzerinden mevcut konfigürasyon bilgilerine
+- [http://172.16.77.123:3100/loki/api/v1/labels](http://172.16.77.123:3100/loki/api/v1/labels)
+- [http://172.16.77.123:3100/metrics](http://172.16.77.123:3100/metrics)
+- [http://172.16.77.123:3100/loki/api/v1/status/buildinfo](http://172.16.77.123:3100/loki/api/v1/status/buildinfo)
+- http://172.16.77.123:3100/log_level
+- http://172.16.77.123:3100/loki/api/v1/label/service_name/values
+- http://172.16.77.123:3100/loki/api/v1/series
+- http://172.16.77.123:3100/distributor/ring
+
 
 bakılabilir.
 

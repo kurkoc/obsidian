@@ -204,3 +204,24 @@ JAVA_VERSION=jdk8u362-b09_openj9-0.36.0
 tuneIoThreads=4
 _=/usr/bin/printenv
 ```
+
+**Elasticsearch**
+
+```
+{
+  "name" : "172.20.50.77",
+  "cluster_name" : "ApinizerEsCluster",
+  "cluster_uuid" : "53Um70XhRuaDwlNsWmp6kA",
+  "version" : {
+    "number" : "7.9.2",
+    "build_flavor" : "default",
+    "build_type" : "tar",
+    "build_hash" : "d34da0ea4a966c4e49417f2da2f244e3e97b4e6e",
+    "build_date" : "2020-09-23T00:45:33.626720Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.6.2",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+```

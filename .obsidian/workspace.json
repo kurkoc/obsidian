@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apinizer/Kubernetes - Eski.md",
+                "file": "minio/minio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kubernetes - Eski"
+              "title": "minio"
             }
           }
         ]
@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 265.5
+    "width": 268.5
   },
   "right": {
     "id": "67a96f0662556849",
@@ -201,28 +201,31 @@
       "obsidian-trash-explorer:Open trash explorer": false
     }
   },
-  "active": "19fa18201ba73cb4",
+  "active": "4bf9bf5cfb72b776",
   "lastOpenFiles": [
+    "_images/minio_tikas_yetki2.png",
+    "_images/minio_tikas_yetki.png",
+    "minio/minio.md",
+    "Pasted image 20250507150115.png",
+    "_images/minio_tikas_policy.png",
+    "_images/minio_policy_readonly.png",
+    "_images/minio_policy_readwrite.png",
+    "_images/mc_alias_ls.png",
+    "_images/mc_admin_local.png",
+    "_images/minio_login.png",
+    "apinizer/Kubernetes - Eski.md",
+    "minio",
     "loki/loki.md",
     "monitoring/monitoring.md",
     "_images/loki_streamsharding.png",
     "Pasted image 20250505145104.png",
-    "Pasted image 20250505145115.png",
-    "_images/loki_ssdmode.png",
-    "_images/loki_monolithic_mode.png",
-    "_images/loki_architecture.png",
-    "_images/loki_labels.png",
-    "_images/loki_arch.png",
     "prometheus/prometheus.md",
     "loki",
     "kubernetes/ConfigMaps.md",
-    "_images/alertmanager_discovery.png",
-    "_images/prometheus_alertfiring.png",
     "prometheus",
     "Pasted.md",
     "kubernetes/kind.md",
     "monitoring",
-    "apinizer/Kubernetes - Eski.md",
     "kubernetes/Deployments.md",
     "kubernetes/Pods.md",
     "kubernetes/Objects.md",
@@ -241,13 +244,11 @@
     "gitversion/gitversion.md",
     "markdown/markdown.md",
     "kubernetes/Namespaces.md",
-    "kubernetes/Annotations.md",
     "apinizer",
     "kubernetes",
     "git/git internals",
     "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "gitversion",
-    "git",
     "Untitled.canvas"
   ]
 }

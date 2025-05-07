@@ -24,16 +24,16 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
-      "filepath": "apinizer/Kubernetes - Eski.md",
-      "timestamp": 1746532451806
+      "filepath": "minio/minio.md",
+      "timestamp": 1746619358302
     },
     {
-      "filepath": "loki/loki.md",
-      "timestamp": 1746518113932
+      "filepath": "_images/minio_tikas_yetki.png",
+      "timestamp": 1746619338696
     },
     {
-      "filepath": "monitoring/monitoring.md",
-      "timestamp": 1746518096729
+      "filepath": "_images/minio_login.png",
+      "timestamp": 1746604012006
     }
   ],
   "bookmarkedFileStore": [],

@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "minio",
+      "path": "minio/minio.md"
+    },
+    {
+      "basename": "minio_tikas_yetki",
+      "path": "_images/minio_tikas_yetki.png"
+    },
+    {
+      "basename": "minio_login",
+      "path": "_images/minio_login.png"
+    },
+    {
       "basename": "Kubernetes - Eski",
       "path": "apinizer/Kubernetes - Eski.md"
     },

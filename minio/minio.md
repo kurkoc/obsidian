@@ -271,7 +271,22 @@ Minio bazı built-in policy'lerle beraber gelir. Bunlar;
 - writeonly
 dir.
 
-UI uygulaması üzerinden bu policy'leri incelemek, policy tanımlama süreçlerini anlama açısından faydalı olacaktır. 
+UI uygulaması üzerinden bu policy'leri incelemek, policy tanımlama süreçlerini anlama açısından faydalı olacaktır. Policy tanımları Amazon'un IAM(Identity Access Management) yaklaşımındaki policy tanımları gibi tanımlanır. (https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html)
+
+Version
+Id
+Statement
+Sid
+Effect
+Principal
+NotPrincipal
+Action
+NotAction
+Resource
+NotResource
+Condition
+
+elementleri kullanılarak policy'ler hazırlanabilir.
 
 Örnek olarak ilk önce `readwrite` policy'si için bakalım.
 
@@ -378,6 +393,23 @@ Benzer şekilde `writeonly` policy'si için, action olarak sadece `s3:PutObject`
     ]
 }
 ```
+
+Resource tanımlarını yaparken, Amazon'un IAM tanımlamasındaki notasyon kullanılır. 
+
+```
+arn:partition:service:region:account-id:resource
+```
+
+arn => Her zaman arn olarak başlanır. Amazon Resource Name kısaltması
+partition => AWS bölümlendirmesi: genellikle `aws` (standart), `aws-cn` (Çin), `aws-us-gov` (ABD hükümeti) gibi.
+service => Kaynağın ait olduğu AWS servisi (örneğin `iam`, `s3`, `ec2`)
+region => Bölge bilgisi (örn: `us-east-1`). IAM gibi global servislerde boş olabilir.
+account-id => AWS hesabının 12 haneli kimliği
+resource => Kaynağın adı veya tanımı (örn: `user/JohnDoe`, `bucket-name/object-key`)
+
+minio için bizim resource tanımlarımızda, region ve account-id alanları boş olduğu için;  arn:aws:s3:::resource şeklinde ifadeler kullanabiliriz. 
+
+
 
 Biz de buradaki tanımlardan yola çıkarak kendi policy tanımlarımızı yapabiliriz.
 

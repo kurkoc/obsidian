@@ -112,6 +112,39 @@ loki.write "grafana_loki" {
 
 Halihazırda biz; E:/IISLOG path’i altındaki, bütün .log uzantılı dosyaları takip edip, tailing işlemi yapıyoruz ve elde edilen logları [http://172.16.77.123:3100/loki/api/v1/push](http://172.16.77.123:3100/loki/api/v1/push) adresindeki loki endpointine gönderiyoruz.
 
+IIS üzerindeki log'larda topladığımız alanlar aşağıdaki gibidir.
+
+```
+date 
+time 
+s-sitename 
+s-computername 
+s-ip 
+cs-method 
+cs-uri-stem 
+cs-uri-query 
+s-port 
+cs-username 
+c-ip 
+cs(User-Agent) 
+cs(Referer) 
+cs-host 
+sc-status 
+sc-substatus 
+sc-win32-status 
+sc-bytes 
+cs-bytes 
+time-taken 
+OriginalIP
+```
+
+Örnek bir log satırı aşağıdaki gibidir.
+
+```
+2025-05-20 07:01:12 W3SVC64 SDFARMAPPC01 172.20.50.143 POST /SistemPersonel/DataTablesList - 80 - 172.20.50.246 Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/136.0.0.0+Safari/537.36 https://envanter.tarimorman.gov.tr/Sistem/Detay?TarEncryptid=TarEncryptMoIWySl3g0oZSd0ZrzjsnQ%3D%3D envanter.tarimorman.gov.tr 200 0 0 4943 3413 692 172.30.116.125
+
+```
+
 Her sunucu üzerinde `localhost:12345` adresi üzerinden alloy’un çalıştırdığı componentler ve tanımlarını gösteren web arayüzüne erişebiliriz.
 
 ![](../_images/alloy_dashboard.png)
@@ -338,4 +371,10 @@ GrafanaPa++w0rd
 
 ### Pipeline
 
-![monitoring_light](../_images/monitoring-light.png)
+![logging_pipeline](../_images/logging-pipeline-dark.png)
+
+
+
+
+![metric_pipeline](metric-pipeline-dark.png)
+

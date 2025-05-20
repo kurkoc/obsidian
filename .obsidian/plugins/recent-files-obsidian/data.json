@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "monitoring",
+      "path": "monitoring/monitoring.md"
+    },
+    {
       "basename": "minio",
       "path": "minio/minio.md"
     },
@@ -19,10 +23,6 @@
     {
       "basename": "loki",
       "path": "loki/loki.md"
-    },
-    {
-      "basename": "monitoring",
-      "path": "monitoring/monitoring.md"
     },
     {
       "basename": "loki_arch",

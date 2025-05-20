@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "minio/minio.md",
+                "file": "monitoring/monitoring.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "minio"
+              "title": "monitoring"
             }
           }
         ]
@@ -203,22 +203,22 @@
   },
   "active": "4bf9bf5cfb72b776",
   "lastOpenFiles": [
+    "_images/metric-pipeline-dark.png",
+    "_images/logging-pipeline-dark.png",
+    "_images/logging-pipeline-dark.png",
+    "minio/minio.md",
     "_images/minio_tikas_yetki2.png",
     "_images/minio_tikas_yetki.png",
-    "minio/minio.md",
     "Pasted image 20250507150115.png",
     "_images/minio_tikas_policy.png",
     "_images/minio_policy_readonly.png",
     "_images/minio_policy_readwrite.png",
     "_images/mc_alias_ls.png",
     "_images/mc_admin_local.png",
-    "_images/minio_login.png",
     "apinizer/Kubernetes - Eski.md",
     "minio",
     "loki/loki.md",
     "monitoring/monitoring.md",
-    "_images/loki_streamsharding.png",
-    "Pasted image 20250505145104.png",
     "prometheus/prometheus.md",
     "loki",
     "kubernetes/ConfigMaps.md",

@@ -376,5 +376,5 @@ GrafanaPa++w0rd
 
 
 
-![metric_pipeline](metric-pipeline-dark.png)
+![metric_pipeline](../_images/metric-pipeline-dark.png)
 

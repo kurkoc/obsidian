@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "otel collector",
+      "path": "OpenTelemetry/otel collector.md"
+    },
+    {
+      "basename": "otelcollector-nocollector",
+      "path": "_images/otelcollector-nocollector.png"
+    },
+    {
+      "basename": "otelcollector-schema",
+      "path": "_images/otelcollector-schema.png"
+    },
+    {
       "basename": "monitoring",
       "path": "monitoring/monitoring.md"
     },
@@ -187,14 +199,6 @@
     {
       "basename": "Nodes",
       "path": "kubernetes/Nodes.md"
-    },
-    {
-      "basename": "belvedere",
-      "path": "markdown/belvedere.JPG"
-    },
-    {
-      "basename": "Turkish_Sentiment_Analysis_Using_BERT",
-      "path": "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf"
     }
   ],
   "omittedPaths": [],

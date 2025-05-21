@@ -24,8 +24,20 @@
   "unresolvedLinks": false,
   "recentFilesStore": [
     {
+      "filepath": "OpenTelemetry/otel collector.md",
+      "timestamp": 1747848481882
+    },
+    {
+      "filepath": "Pasted image 20250521202747.png",
+      "timestamp": 1747848480143
+    },
+    {
+      "filepath": "_images/otelcollector-schema.png",
+      "timestamp": 1747846570114
+    },
+    {
       "filepath": "monitoring/monitoring.md",
-      "timestamp": 1747727181083
+      "timestamp": 1747846383021
     }
   ],
   "bookmarkedFileStore": [],

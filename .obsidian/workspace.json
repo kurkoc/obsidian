@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OpenTelemetry/otel collector.md",
+                "file": "linux/terminal'de hayatta kalmak.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "otel collector"
+              "title": "terminal'de hayatta kalmak"
             }
           }
         ]
@@ -203,9 +203,12 @@
   },
   "active": "19fa18201ba73cb4",
   "lastOpenFiles": [
+    "Pasted image 20250522165049.png",
+    "OpenTelemetry/otel collector.md",
+    "linux/terminal'de hayatta kalmak.md",
+    "linux",
     "_images/otelcollector-agent.png",
     "_images/otelcollector-nocollector.png",
-    "OpenTelemetry/otel collector.md",
     "_images/otelcollector-schema.png",
     "monitoring/monitoring.md",
     "OpenTelemetry",
@@ -217,7 +220,6 @@
     "_images/minio_tikas_yetki.png",
     "Pasted image 20250507150115.png",
     "_images/minio_tikas_policy.png",
-    "_images/minio_policy_readonly.png",
     "apinizer/Kubernetes - Eski.md",
     "minio",
     "loki/loki.md",
@@ -244,11 +246,9 @@
     "_images",
     "gitversion/gitversion copy.md",
     "gitversion/gitversion.md",
-    "markdown/markdown.md",
     "apinizer",
     "kubernetes",
     "git/git internals",
-    "markdown/Turkish_Sentiment_Analysis_Using_BERT.pdf",
     "Untitled.canvas"
   ]
 }

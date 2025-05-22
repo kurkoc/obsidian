@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "terminal'de hayatta kalmak",
+      "path": "linux/terminal'de hayatta kalmak.md"
+    },
+    {
       "basename": "otel collector",
       "path": "OpenTelemetry/otel collector.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "DaemonSet",
       "path": "kubernetes/DaemonSet.md"
-    },
-    {
-      "basename": "Nodes",
-      "path": "kubernetes/Nodes.md"
     }
   ],
   "omittedPaths": [],
